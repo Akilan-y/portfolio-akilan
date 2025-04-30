@@ -8,7 +8,7 @@ const projects: Project[] = [
     id: 1,
     title: "Framer-portfolio",
     description: " Created a photography portfolio in framer as i love photography.",
-    image: "public/framer-portfolio.png",
+    image: "framer-portfolio.png",
     category: "Motion Design",
     tags: ["Framer"],
     link: "https://akilan-portfolio.framer.website"
@@ -17,7 +17,7 @@ const projects: Project[] = [
     id: 2,
     title: "Chandrayaan 3",
     description: "A video to celebrate success of Chandrayaan 3 and to welcome sir P.Veeramuthuvel(Project Director).",
-    image: "public/chan 3 - show.png",
+    image: "chandrayaan.png",
     category: "Video",
     tags: ["Adobe Premiere Pro", "Capcut"],
     link: "https://drive.google.com/file/d/1q6uiwlqp8YgMUu71ivJO5G5ZTro1hCgj/view?usp=sharing"
@@ -26,7 +26,7 @@ const projects: Project[] = [
     id: 3,
     title: "KK boutique",
     description: "Designed posters for kk boutique shop",
-    image: "public/boutique-show.png",
+    image: "boutique-show.png",
     category: "Social Media",
     tags: ["Canva", "Picsart"],
     link: "pictures-projects/Boutique.png"
