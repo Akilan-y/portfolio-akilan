@@ -8,7 +8,7 @@ const projects: Project[] = [
     id: 1,
     title: "Framer-portfolio",
     description: " Created a photography portfolio in framer as i love photography.",
-    image: "pictures-projects/framer-portfolio.png",
+    image: "https://github.com/user-attachments/assets/d9570c0d-5dc1-4ae1-a04c-eb75e3a3901d",
     category: "Motion Design",
     tags: ["Framer"],
     link: "https://akilan-portfolio.framer.website"
@@ -17,7 +17,7 @@ const projects: Project[] = [
     id: 2,
     title: "Chandrayaan 3",
     description: "A video to celebrate success of Chandrayaan 3 and to welcome sir P.Veeramuthuvel(Project Director).",
-    image: "pictures-projects/chan 3 - show.png",
+    image: "https://github.com/user-attachments/assets/92347475-29b1-4efd-a285-2d69ecf271a2",
     category: "Video",
     tags: ["Adobe Premiere Pro", "Capcut"],
     link: "https://drive.google.com/file/d/1q6uiwlqp8YgMUu71ivJO5G5ZTro1hCgj/view?usp=sharing"
@@ -26,7 +26,7 @@ const projects: Project[] = [
     id: 3,
     title: "KK boutique",
     description: "Designed posters for kk boutique shop",
-    image: "pictures-projects/boutique-show.png",
+    image: "https://github.com/user-attachments/assets/b65a26aa-d5ea-47eb-b23b-e340b3aef95e",
     category: "Social Media",
     tags: ["Canva", "Picsart"],
     link: "pictures-projects/Boutique.png"
