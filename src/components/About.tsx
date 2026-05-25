@@ -102,7 +102,7 @@ const About: React.FC = () => {
                     <p className="text-slate-300 text-sm font-light">Expert in narrative pacing, color grading, sound design, and post-production workflows for dynamic content releases.</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">Premiere Pro</span>
-                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">DaVinci Resolve</span>
+                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">CapCut</span>
                     </div>
                   </div>
                 </div>
@@ -119,7 +119,6 @@ const About: React.FC = () => {
                     <p className="text-slate-300 text-sm font-light">Designing engaging user journeys, wireframes, interaction curves, and responsive high-fidelity web experiences.</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">Framer Web</span>
-                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">CSS Custom Animations</span>
                     </div>
                   </div>
                 </div>
