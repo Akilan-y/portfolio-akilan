@@ -5,7 +5,6 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // Handle scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -26,31 +25,44 @@ const Navbar: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
       setIsMenuOpen(false);
     }
   };
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-550 ${
         isScrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm' 
-          : 'bg-transparent'
+          ? 'py-3' 
+          : 'py-6'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4">
+      <div 
+        className={`mx-auto px-6 py-3 transition-all duration-550 ${
+          isScrolled 
+            ? 'max-w-3xl rounded-full border border-white/10 bg-slate-950/40 backdrop-blur-md shadow-[0_8px_32px_0_rgba(99,102,241,0.1)]' 
+            : 'max-w-6xl bg-transparent'
+        }`}
+      >
         <div className="flex justify-between items-center">
-          <div className="flex  items-center">
+          <div className="flex items-center">
             <a 
               href="#" 
-              className="text-xl font-bold text-gray-900 dark:text-white"
+              className="text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent font-display hover:opacity-85 transition-opacity"
               onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              Akilan
+              Akilan Y.
             </a>
           </div>
           
@@ -61,7 +73,7 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection('projects');
               }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+              className="text-slate-300 hover:text-indigo-400 transition-colors font-medium text-sm tracking-wide"
             >
               Projects
             </a>
@@ -71,7 +83,7 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection('about');
               }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+              className="text-slate-300 hover:text-indigo-400 transition-colors font-medium text-sm tracking-wide"
             >
               About
             </a>
@@ -81,21 +93,19 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection('contact');
               }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+              className="text-slate-300 hover:text-indigo-400 transition-colors font-medium text-sm tracking-wide"
             >
               Contact
             </a>
-            
-            
           </nav>
           
-          <div className="flex items-center md:hidden space-x-4">
+          <div className="flex items-center md:hidden">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-full text-slate-300 hover:bg-white/5 transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -104,10 +114,10 @@ const Navbar: React.FC = () => {
       {/* Mobile menu */}
       <div 
         className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMenuOpen ? 'max-h-60' : 'max-h-0'
+          isMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-6 py-4 bg-white dark:bg-gray-900 shadow-lg">
+        <div className="px-6 py-4 mx-4 mt-2 rounded-2xl border border-white/10 bg-slate-950/90 backdrop-blur-lg shadow-xl">
           <nav className="flex flex-col space-y-4">
             <a 
               href="#projects" 
@@ -115,7 +125,7 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection('projects');
               }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2"
+              className="text-slate-300 hover:text-indigo-400 transition-colors font-medium py-2 border-b border-white/5"
             >
               Projects
             </a>
@@ -125,7 +135,7 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection('about');
               }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2"
+              className="text-slate-300 hover:text-indigo-400 transition-colors font-medium py-2 border-b border-white/5"
             >
               About
             </a>
@@ -135,7 +145,7 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection('contact');
               }}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium py-2"
+              className="text-slate-300 hover:text-indigo-400 transition-colors font-medium py-2"
             >
               Contact
             </a>

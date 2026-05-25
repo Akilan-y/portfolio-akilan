@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Award, FileCode, PenTool, Zap } from 'lucide-react';
+import { Award, FileCode, PenTool, Zap, Sparkles } from 'lucide-react';
 
 const About: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -12,6 +12,7 @@ const About: React.FC = () => {
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
+          section?.classList.remove('opacity-0');
           section?.classList.add('animate-fade-in');
         }
       },
@@ -24,6 +25,7 @@ const About: React.FC = () => {
           const items = skills?.querySelectorAll('.skill-item');
           items?.forEach((item, index) => {
             setTimeout(() => {
+              item.classList.remove('opacity-0');
               item.classList.add('animate-skill-in');
             }, index * 150);
           });
@@ -42,106 +44,104 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 px-6 bg-gray-50 dark:bg-gray-800 opacity-0 transition-opacity duration-1000">
+    <section id="about" ref={sectionRef} className="py-24 px-6 bg-transparent opacity-0 transition-all duration-1000 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Bio & Education Column */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              About <span className="text-blue-600 dark:text-blue-400">Me</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-white">
+              Behind the <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">Creative</span>
             </h2>
             
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              I'm Akilan Y, A passionate motion designer with compelling visual narratives through animation and interaction. My approach combines technical precision with creative storytelling to create memorable digital experiences.
+            <p className="text-slate-300 mb-6 leading-relaxed font-light text-lg">
+              I'm Akilan Y, a forward-thinking Video Editor and Visual Designer specializing in turning complex ideas into high-fidelity cinematic narratives. By blending technical precision, editing fluidity, and raw creative passion, I engineer digital experiences that captivate.
             </p>
             
-            <p className="text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
-              With a background in both traditional design principles and motion techniques, I bring a unique perspective to each project.
+            <p className="text-slate-400 mb-12 leading-relaxed font-light text-base">
+              Having completed my B.Tech in Artificial Intelligence and Data Science from KIT-Coimbatore, I actively merge the boundaries of logic and art, deploying modern technology to craft advanced visual designs.
             </p>
             
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Education</h3>
-                <p className="text-gray-600 dark:text-gray-300">B.Tech in Artificial Intelligence and Data Science, KIT-Coimbatore.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="glass-panel p-6 rounded-2xl border border-white/5 hover:border-indigo-500/20 transition-all duration-300">
+                <div className="flex items-center gap-2 mb-3 text-indigo-400">
+                  <Award size={20} />
+                  <h3 className="text-lg font-bold text-white font-display">Education</h3>
+                </div>
+                <p className="text-slate-300 text-sm font-medium">B.Tech in Artificial Intelligence & Data Science</p>
+                <p className="text-slate-400 text-xs mt-1">KIT-Coimbatore</p>
               </div>
               
-              <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Experience</h3>
-                <p className="text-gray-600 dark:text-gray-300">3+ years experience in editing.
-                  Applications used: Canva, Picsart, Adobe photoshop, Kinemaster,
-                  Powerdirector, Capcut,
-                  Adobe premiere pro,Davinci(beginner),Lottie</p>
+              <div className="glass-panel p-6 rounded-2xl border border-white/5 hover:border-indigo-500/20 transition-all duration-300">
+                <div className="flex items-center gap-2 mb-3 text-indigo-400">
+                  <Sparkles size={20} />
+                  <h3 className="text-lg font-bold text-white font-display">Experience</h3>
+                </div>
+                <p className="text-slate-300 text-sm font-medium">Creative Editor (3+ Years)</p>
+                <p className="text-slate-400 text-xs mt-1 leading-relaxed">
+                  Premiere Pro, DaVinci Resolve, Canva Pro, PicsArt Studio.
+                </p>
               </div>
             </div>
           </div>
           
+          {/* Skills Column */}
           <div ref={skillsRef}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              <span className="text-blue-600 dark:text-blue-400">My Skills</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-white">
+              Dynamic <span className="bg-gradient-to-r from-fuchsia-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">Capabilities</span>
             </h2>
             
-            <div className="space-y-8">
-              <div className="skill-item opacity-0 transform translate-y-4 transition-all duration-500 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md">
+            <div className="space-y-6">
+              {/* Skill Item 1 */}
+              <div className="skill-item opacity-0 transform translate-y-4 transition-all duration-500 glass-panel p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-lg text-blue-600 dark:text-blue-400">
-                    <PenTool size={24} />
+                  <div className="p-3.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.1)]">
+                    <PenTool size={22} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Motion Design</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Expert in creating fluid animations and motion graphics for various platforms and purposes.</p>
+                    <h3 className="text-lg font-bold text-white font-display mb-1">Video Editing & Post-Production</h3>
+                    <p className="text-slate-300 text-sm font-light">Expert in narrative pacing, color grading, sound design, and post-production workflows for dynamic content releases.</p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md">Premiere pro</span>
-                      <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md">Lottie</span>
+                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">Premiere Pro</span>
+                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">DaVinci Resolve</span>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="skill-item opacity-0 transform translate-y-4 transition-all duration-500 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md">
+              {/* Skill Item 2 */}
+              <div className="skill-item opacity-0 transform translate-y-4 transition-all duration-500 glass-panel p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-lg text-blue-600 dark:text-blue-400">
-                    <FileCode size={24} />
+                  <div className="p-3.5 bg-purple-500/10 border border-purple-500/20 rounded-xl text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+                    <FileCode size={22} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">UI Animation</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Skilled in creating engaging UI animations that enhance user experience and product functionality.</p>
+                    <h3 className="text-lg font-bold text-white font-display mb-1">Interactive UI & UX Design</h3>
+                    <p className="text-slate-300 text-sm font-light">Designing engaging user journeys, wireframes, interaction curves, and responsive high-fidelity web experiences.</p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md">Framer</span>
-                      <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md">CSS/GSAP</span>
+                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">Framer Web</span>
+                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">CSS Custom Animations</span>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="skill-item opacity-0 transform translate-y-4 transition-all duration-500 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md">
+              {/* Skill Item 3 */}
+              <div className="skill-item opacity-0 transform translate-y-4 transition-all duration-500 glass-panel p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-lg text-blue-600 dark:text-blue-400">
-                    <Award size={24} />
+                  <div className="p-3.5 bg-fuchsia-500/10 border border-fuchsia-500/20 rounded-xl text-fuchsia-400 shadow-[0_0_15px_rgba(217,70,239,0.1)]">
+                    <Award size={22} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Visual Storytelling</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Experienced in crafting compelling visual narratives that communicate complex ideas effectively.</p>
+                    <h3 className="text-lg font-bold text-white font-display mb-1">Visual Branding</h3>
+                    <p className="text-slate-300 text-sm font-light">Designing cohesive brand guidelines, viral social media visuals, and print layouts that capture conversions.</p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md">Storyboarding</span>
-                      <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md">Explainer Videos</span>
+                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">Brand Strategy</span>
+                      <span className="px-2.5 py-1 text-xs bg-white/5 border border-white/5 text-slate-400 rounded-md">Graphic Layouts</span>
                     </div>
                   </div>
                 </div>
               </div>
-              
-              <div className="skill-item opacity-0 transform translate-y-4 transition-all duration-500 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-lg text-blue-600 dark:text-blue-400">
-                    <Zap size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">3D Animation</h3>
-                    <p className="text-gray-600 dark:text-gray-300">3D animations and visualizations that bring concepts to life.</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md">Blender</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

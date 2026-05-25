@@ -1,34 +1,33 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Eye, Code, Play } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 import { Project } from '../types';
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Framer-portfolio",
-    description: " Created a photography portfolio in framer as i love photography.",
+    title: "AuraLens Showcase",
+    description: "An immersive digital photography archive built in Framer featuring scroll-linked parallax animations, fluid interactions, and dynamic media grid systems.",
     image: "framer-portfolio.png",
-    category: "Motion Design",
-    tags: ["Framer"],
+    category: "UI & UX Design",
+    tags: ["Framer", "Interaction", "Visual Design"],
     link: "https://akilan-portfolio.framer.website"
   },
   {
     id: 2,
-    title: "Chandrayaan 3",
-    description: "A video to celebrate success of Chandrayaan 3 and to welcome sir P.Veeramuthuvel(Project Director).",
+    title: "Chandrayaan-3 Tribute",
+    description: "A commemorative cinematic video production honoring ISRO's historic lunar triumph, designed for Project Director P. Veeramuthuvel. Integrates custom editing techniques and advanced post-production visual effects.",
     image: "chandrayaan.png",
-    category: "Video",
-    tags: ["Adobe Premiere Pro", "Capcut"],
+    category: "Cinematic Editing",
+    tags: ["Premiere Pro", "Post Production", "Sound Design"],
     link: "https://drive.google.com/file/d/1q6uiwlqp8YgMUu71ivJO5G5ZTro1hCgj/view?usp=sharing"
   },
   {
     id: 3,
-    title: "KK boutique",
-    description: "Designed posters for kk boutique shop",
+    title: "KK Boutique Brand Identity",
+    description: "A complete digital brand identity design featuring high-converting promotional assets, social media campaigns, and bespoke print material layouts.",
     image: "boutique-show.png",
-    category: "Social Media",
-    tags: ["Canva", "Picsart"],
+    category: "Brand & Graphic",
+    tags: ["Canva Pro", "PicsArt", "Visual Branding"],
     link: "pictures-projects/Boutique.png"
   },
 ];
@@ -47,10 +46,11 @@ const Projects: React.FC = () => {
       : projects.filter(project => project.category === activeFilter);
     
     setAnimateCards(false);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setFilteredProjects(filtered);
       setAnimateCards(true);
-    }, 300);
+    }, 200);
+    return () => clearTimeout(timer);
   }, [activeFilter]);
   
   useEffect(() => {
@@ -75,21 +75,21 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 px-6 bg-white dark:bg-gray-900">
+    <section id="projects" ref={sectionRef} className="py-24 px-6 bg-transparent relative z-10">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-gray-900 dark:text-white">
-         <span className="text-blue-600 dark:text-blue-400">Projects</span>
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-16 text-center text-white">
+          Featured <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">Creations</span>
         </h2>
         
-        <div className="flex flex-wrap justify-center mb-12 gap-2">
+        <div className="flex flex-wrap justify-center mb-16 gap-3">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 border ${
                 activeFilter === category
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
+                  ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white border-transparent shadow-[0_0_20px_rgba(99,102,241,0.25)]'
+                  : 'bg-white/5 text-slate-300 border-white/5 hover:bg-white/10 hover:border-white/10'
               }`}
             >
               {category}
